@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SampleTDD_Maven_With_ExtentReport Test suite">
+
+	<listeners>
+		<listener class-name="sample.testUtils.TestListener" />
+		<listener class-name="sample.testUtils.AnnotationTransformer" />
+	</listeners>
+
+	<test name="WebStaurantStore testing on Chrome">
+
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="web.staurant.testPages.HomePageProductSearchTest" />
+		</classes>
+
+	</test> <!-- Test -->
+
+	<test name="WebStaurantStore testing on IE">
+
+		<parameter name="browser" value="IE"></parameter>
+		<classes>
+			<class name="web.staurant.testPages.HomePageProductSearchTest" />
+		</classes>
+
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->
