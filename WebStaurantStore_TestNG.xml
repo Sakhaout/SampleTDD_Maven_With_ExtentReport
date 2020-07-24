@@ -7,8 +7,6 @@
 		<listener class-name="sample.testUtils.AnnotationTransformer" />
 	</listeners>
 
-
-
 	<test name="WebStaurantStore testing on IE">
 
 		<parameter name="browser" value="IE"></parameter>
@@ -17,5 +15,8 @@
 		</classes>
 
 	</test> <!-- Test -->
+
+
+
 
 </suite> <!-- Suite -->

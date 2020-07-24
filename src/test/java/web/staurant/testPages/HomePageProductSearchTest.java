@@ -35,8 +35,8 @@ public class HomePageProductSearchTest extends BasePage{
 		Assert.assertEquals(wordCount, true);
 	}
 	
-	@Test(priority = 2)
-	@Parameters({"browser"})
+	//@Test(priority = 2)
+	//@Parameters({"browser"})
 	public void addToCartLastItems(String browser) {
 		ExtentTestManager.startTest("Test: "+new Object(){}.getClass().getEnclosingMethod().getName(),"Browser: "+browser);
 		try {
@@ -48,8 +48,8 @@ public class HomePageProductSearchTest extends BasePage{
 
 	}
 	
-	@Test(priority = 3)
-	@Parameters({"browser"})
+	//@Test(priority = 3)
+	//@Parameters({"browser"})
 	public void isCartempty(String browser) {
 		ExtentTestManager.startTest("Test: "+new Object(){}.getClass().getEnclosingMethod().getName(),"Browser: "+browser);
 		try {
