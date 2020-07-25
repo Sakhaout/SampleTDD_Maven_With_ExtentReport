@@ -16,14 +16,6 @@
 
 	</test> <!-- Test -->
 
-	<test name="WebStaurantStore testing on Chrome">
-
-		<parameter name="browser" value="chrome"></parameter>
-		<classes>
-			<class name="web.staurant.testPages.HomePageProductSearchTest" />
-		</classes>
-
-	</test> <!-- Test -->
 
 
 

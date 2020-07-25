@@ -54,7 +54,7 @@ public class HomePageProductSearchTest extends BasePage{
 		ExtentTestManager.startTest("Test: "+new Object(){}.getClass().getEnclosingMethod().getName(),"Browser: "+browser);
 		try {
 			boolean iscartempty = HomePage_obj.emptyCart();
-			Assert.assertEquals(iscartempty, true);
+			Assert.assertEquals(iscartempty, false);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
