@@ -36,8 +36,7 @@ public class HomePageProductSearchTest extends BasePage{
 	}
 	
 	@Test(priority = 2)
-	@Parameters({"browser"})
-	public void test(String browser) {
+	public void test() {
 		Assert.assertEquals(11, 12);
 	}
 	
