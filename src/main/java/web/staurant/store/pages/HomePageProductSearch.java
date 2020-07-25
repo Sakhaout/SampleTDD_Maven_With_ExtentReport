@@ -32,7 +32,7 @@ public class HomePageProductSearch extends BasePage{
 		}
 		System.out.println("Total '"+searchWord +"' worde are in the product list is: "+count);
 		if(productList.size() == count) {
-			return false;
+			return true;
 		}
 		return false;
 

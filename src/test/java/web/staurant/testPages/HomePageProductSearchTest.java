@@ -35,6 +35,12 @@ public class HomePageProductSearchTest extends BasePage{
 		Assert.assertEquals(wordCount, true);
 	}
 	
+	@Test(priority = 2)
+	@Parameters({"browser"})
+	public void test(String browser) {
+		Assert.assertEquals(11, 12);
+	}
+	
 	//@Test(priority = 2)
 	//@Parameters({"browser"})
 	public void addToCartLastItems(String browser) {
