@@ -34,12 +34,7 @@ public class HomePageProductSearchTest extends BasePage{
 		boolean wordCount = HomePage_obj.countWordInProduct("stainless work table", "Table");
 		Assert.assertEquals(wordCount, true);
 	}
-	
-	@Test(priority = 2)
-	public void test() {
-		Assert.assertEquals(11, 12);
-	}
-	
+
 	//@Test(priority = 2)
 	//@Parameters({"browser"})
 	public void addToCartLastItems(String browser) {
