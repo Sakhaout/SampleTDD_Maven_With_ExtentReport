@@ -8,10 +8,11 @@
 	</listeners>
 
 	<test name="WebStaurantStore testing on IE">
-		<parameter name="browser" value="IE"></parameter>
+		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="web.staurant.testPages.HomePageProductSearchTest" />
 		</classes>
+		
 	</test> <!-- Test -->
 
 </suite> <!-- Suite -->
