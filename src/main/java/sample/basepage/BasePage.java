@@ -21,8 +21,8 @@ public class BasePage {
 	public static WebDriver driver = null; 
 	public static Properties properties_obj;
 	private static Logger log = LogManager.getLogger(BasePage.class.getName());
-	public static int Page_Load_TimeOut = 30;
-	public static int Implicitly_Wait = 20;
+	public static int Page_Load_TimeOut = 50;
+	public static int Implicitly_Wait = 50;
 	private static String chromeDriver = "\\src\\main\\resources\\Driver\\chromedriver.exe";
 	private static String geckoDriver = "\\src\\main\\resources\\Driver\\geckodriver.exe";
 	private static String ieDriver = "\\src\\main\\resources\\Driver\\IEDriverServer.exe";

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import sample.basepage.BasePage;
+import sample.utilies.CommonFunction;
 import web.staurant.store.webElements.HomePageProductSearch_WebElements;
 
 public class HomePageProductSearch extends BasePage{
@@ -17,8 +18,11 @@ public class HomePageProductSearch extends BasePage{
 	
 	public boolean countWordInProduct(String productName, String searchWord) {
 		int count = 0;
+		CommonFunction.implicitlyWait(Implicitly_Wait);
 		webElements_obj.getSearchBoxElement().findElement(driver).sendKeys(productName);
+		CommonFunction.implicitlyWait(Implicitly_Wait);
 		webElements_obj.getSearchButtonElement().findElement(driver).click();
+		CommonFunction.implicitlyWait(Implicitly_Wait);
 		productList = webElements_obj.getProductListElement().findElements(driver);
 		System.out.println("Total search Product for '"+productName +"' is: "+productList.size());
 		for(WebElement product:productList) {
