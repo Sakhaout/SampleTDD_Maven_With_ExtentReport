@@ -30,9 +30,7 @@ public class HomePageProductSearchTest extends BasePage{
 	@Test(priority = 1)
 	@Parameters({"browser"})
 	public void countWordInProductList(String browser) {
-		System.out.println("TestStart");
 		ExtentTestManager.startTest("Test: "+new Object(){}.getClass().getEnclosingMethod().getName(),"Browser: "+browser);
-		System.out.println("TestEnd");
 		boolean wordCount = HomePage_obj.countWordInProduct("stainless work table", "Table");
 		Assert.assertEquals(wordCount, true);
 	}

@@ -19,7 +19,6 @@ public class HomePageProductSearch extends BasePage{
 	public boolean countWordInProduct(String productName, String searchWord) {
 		int count = 0;
 		CommonFunction.implicitlyWait(Implicitly_Wait);
-		System.out.println("Enter Search Key");
 		webElements_obj.getSearchBoxElement().findElement(driver).sendKeys(productName);
 		CommonFunction.implicitlyWait(Implicitly_Wait);
 		webElements_obj.getSearchButtonElement().findElement(driver).click();
