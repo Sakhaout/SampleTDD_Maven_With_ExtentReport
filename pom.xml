@@ -34,8 +34,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
-					<shutdown>kill</shutdown>
+					<!--<testFailureIgnore>true</testFailureIgnore>
+					<shutdown>kill</shutdown>-->
 					<suiteXmlFiles>
 						<suiteXmlFile>WebStaurantStore_TestNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
