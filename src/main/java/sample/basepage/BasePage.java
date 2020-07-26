@@ -39,7 +39,6 @@ public class BasePage {
 		}
 	}
 	
-	// Test
 	public static void initialition(String browser) {
 		//String browser = properties_obj.getProperty("browser"); //Get properties from properties file.
 		String path_chromeDriver = System.getProperty("user.dir") + chromeDriver;
