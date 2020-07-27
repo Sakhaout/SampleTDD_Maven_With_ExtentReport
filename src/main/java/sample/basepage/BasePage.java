@@ -52,29 +52,26 @@ public class BasePage {
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			//System.setProperty("webdriver.chrome.driver", "\\usr\\bin\\chromedriver");
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless");
-            chromeOptions.addArguments("--no-sandbox");
-//			chromeOptions.addArguments("--verbose");
-//			chromeOptions.addArguments("--whitelisted-ips=''");
+//			chromeOptions.addArguments("--headless");
+//			chromeOptions.addArguments("--no-sandbox");
 			chromeOptions.merge(cap);
-			//			try {
-			//				driver = new RemoteWebDriver(new URL("http://52.91.121.94:8080/"),chromeOptions);
-			//			} catch (MalformedURLException e) {
-			//				// TODO Auto-generated catch block
-			//				e.printStackTrace();
-			//			}
+			try {
+				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),chromeOptions);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
-			driver = new ChromeDriver(chromeOptions);
+			//driver = new ChromeDriver(chromeOptions);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "firefox");
 			try {
-				driver = new RemoteWebDriver(new URL(" "),cap);
+				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),cap);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -98,11 +95,10 @@ public class BasePage {
 			//				e.printStackTrace();
 			//			}
 			//			System.setProperty("webdriver.ie.driver", path_IEDriver);
-			driver = new InternetExplorerDriver();
+			//driver = new InternetExplorerDriver();
 		}
 
-	//	driver.manage().window().maximize();  //Windows will maximize.
-		driver.manage().window().setSize(new Dimension(1044,784));
+		driver.manage().window().maximize();  //Windows will maximize.
 		driver.manage().deleteAllCookies();		//Delete all cookies.
 		CommonFunction.pageLoadTimeout(Page_Load_TimeOut); //Wait untile page are fully loeaded.
 		CommonFunction.implicitlyWait(Implicitly_Wait); //Wait until element is found, but wait until a time.
