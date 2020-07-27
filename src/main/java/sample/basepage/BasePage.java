@@ -55,6 +55,8 @@ public class BasePage {
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--no-sandbox");
 //			chromeOptions.addArguments("--verbose");
 //			chromeOptions.addArguments("--whitelisted-ips=''");
 			chromeOptions.merge(cap);
@@ -65,7 +67,7 @@ public class BasePage {
 			//				e.printStackTrace();
 			//			}
 			//			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(chromeOptions);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
