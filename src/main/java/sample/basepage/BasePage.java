@@ -2,6 +2,8 @@ package sample.basepage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,11 +11,13 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import sample.utilies.CommonFunction;
 
 
@@ -46,11 +50,29 @@ public class BasePage {
 		String path_IEDriver = System.getProperty("user.dir") + ieDriver;
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
+			WebDriverManager.chromedriver().setup();
+//			DesiredCapabilities cap = new DesiredCapabilities();
+//			cap.setCapability("browserName", "chrome");
+//			try {
+//				driver = new RemoteWebDriver(new URL(" "),cap);
+//			} catch (MalformedURLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
 			driver = new ChromeDriver();
 		}else if(browser.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", path_gekoDriiver);
-			driver = new FirefoxDriver();
+			WebDriverManager.firefoxdriver().setup();
+			DesiredCapabilities cap = new DesiredCapabilities();
+			cap.setCapability("browserName", "firefox");
+			try {
+				driver = new RemoteWebDriver(new URL(" "),cap);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+//			System.setProperty("webdriver.gecko.driver", path_gekoDriiver);
+//			driver = new FirefoxDriver();
 		}else if(browser.equalsIgnoreCase("IE")) {
 			// Set desired capabilities to Ignore IEDriver IGNORING_SECURITY_DOMAINS.
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
@@ -59,8 +81,16 @@ public class BasePage {
 			// Set desired capabilities to Ignore IEDriver zoom level settings and disable native events.
 			capabilities.setCapability("EnableNativeEvents", false);
 			capabilities.setCapability("ignoreZoomSetting", true);
-			System.setProperty("webdriver.ie.driver", path_IEDriver);
-			driver = new InternetExplorerDriver(capabilities);
+		//	capabilities.setCapability("browserName", "IE");
+			WebDriverManager.iedriver().setup();
+//			try {
+//				driver = new RemoteWebDriver(new URL(" "),capabilities);
+//			} catch (MalformedURLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			System.setProperty("webdriver.ie.driver", path_IEDriver);
+			driver = new InternetExplorerDriver();
 		}
 		
 		driver.manage().window().maximize();  //Windows will maximize.

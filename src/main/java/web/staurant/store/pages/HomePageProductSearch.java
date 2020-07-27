@@ -18,11 +18,8 @@ public class HomePageProductSearch extends BasePage{
 	
 	public boolean countWordInProduct(String productName, String searchWord) {
 		int count = 0;
-		CommonFunction.implicitlyWait(Implicitly_Wait);
 		webElements_obj.getSearchBoxElement().findElement(driver).sendKeys(productName);
-		CommonFunction.implicitlyWait(Implicitly_Wait);
 		webElements_obj.getSearchButtonElement().findElement(driver).click();
-		CommonFunction.implicitlyWait(Implicitly_Wait);
 		productList = webElements_obj.getProductListElement().findElements(driver);
 		System.out.println("Total search Product for '"+productName +"' is: "+productList.size());
 		for(WebElement product:productList) {
