@@ -46,9 +46,9 @@ public class BasePage {
 	
 	public static void initialition(String browser) {
 		//String browser = properties_obj.getProperty("browser"); //Get properties from properties file.
-		String path_chromeDriver = System.getProperty("user.dir") + chromeDriver;
-		String path_gekoDriiver = System.getProperty("user.dir") + geckoDriver;
-		String path_IEDriver = System.getProperty("user.dir") + ieDriver;
+//		String path_chromeDriver = System.getProperty("user.dir") + chromeDriver;
+//		String path_gekoDriiver = System.getProperty("user.dir") + geckoDriver;
+//		String path_IEDriver = System.getProperty("user.dir") + ieDriver;
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
