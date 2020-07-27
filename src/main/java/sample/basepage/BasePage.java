@@ -58,7 +58,7 @@ public class BasePage {
 		    chromeOptions.addArguments("--verbose");
 		    chromeOptions.addArguments("--whitelisted-ips=''");
 		    chromeOptions.merge(cap);
-			driver = new RemoteWebDriver(cap);
+			driver = new RemoteWebDriver(chromeOptions);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
