@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -51,8 +52,12 @@ public class BasePage {
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-//			DesiredCapabilities cap = new DesiredCapabilities();
-//			cap.setCapability("browserName", "chrome");
+			DesiredCapabilities cap = new DesiredCapabilities();
+			cap.setCapability("browserName", "chrome");
+		    ChromeOptions chromeOptions = new ChromeOptions();
+		    chromeOptions.addArguments("--verbose");
+		    chromeOptions.addArguments("--whitelisted-ips=''");
+		    chromeOptions.merge(cap);
 //			try {
 //				driver = new RemoteWebDriver(new URL(" "),cap);
 //			} catch (MalformedURLException e) {
@@ -60,7 +65,7 @@ public class BasePage {
 //				e.printStackTrace();
 //			}
 //			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(chromeOptions);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
