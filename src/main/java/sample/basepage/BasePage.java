@@ -8,7 +8,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -51,8 +51,8 @@ public class BasePage {
 		//		String path_IEDriver = System.getProperty("user.dir") + ieDriver;
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
-			//WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.driver", "\\usr\\bin\\chromedriver");
+			WebDriverManager.chromedriver().setup();
+			//System.setProperty("webdriver.chrome.driver", "\\usr\\bin\\chromedriver");
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
@@ -101,7 +101,8 @@ public class BasePage {
 			driver = new InternetExplorerDriver();
 		}
 
-		driver.manage().window().maximize();  //Windows will maximize.
+	//	driver.manage().window().maximize();  //Windows will maximize.
+		driver.manage().window().setSize(new Dimension(1044,784));
 		driver.manage().deleteAllCookies();		//Delete all cookies.
 		CommonFunction.pageLoadTimeout(Page_Load_TimeOut); //Wait untile page are fully loeaded.
 		CommonFunction.implicitlyWait(Implicitly_Wait); //Wait until element is found, but wait until a time.
