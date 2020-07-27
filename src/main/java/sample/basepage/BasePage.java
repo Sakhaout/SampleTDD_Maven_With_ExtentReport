@@ -75,12 +75,12 @@ public class BasePage {
 //			driver = new FirefoxDriver();
 		}else if(browser.equalsIgnoreCase("IE")) {
 			// Set desired capabilities to Ignore IEDriver IGNORING_SECURITY_DOMAINS.
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+//			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+//			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 			
 			// Set desired capabilities to Ignore IEDriver zoom level settings and disable native events.
-			capabilities.setCapability("EnableNativeEvents", false);
-			capabilities.setCapability("ignoreZoomSetting", true);
+//			capabilities.setCapability("EnableNativeEvents", false);
+//			capabilities.setCapability("ignoreZoomSetting", true);
 		//	capabilities.setCapability("browserName", "IE");
 			WebDriverManager.iedriver().setup();
 //			try {
