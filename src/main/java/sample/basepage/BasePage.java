@@ -58,14 +58,7 @@ public class BasePage {
 		    chromeOptions.addArguments("--verbose");
 		    chromeOptions.addArguments("--whitelisted-ips=''");
 		    chromeOptions.merge(cap);
-//			try {
-//				driver = new RemoteWebDriver(new URL(" "),cap);
-//			} catch (MalformedURLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
-			driver = new ChromeDriver(chromeOptions);
+			driver = new RemoteWebDriver(cap);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
