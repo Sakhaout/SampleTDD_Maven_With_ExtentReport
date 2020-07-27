@@ -52,7 +52,7 @@ public class BasePage {
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
 			//WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "\\usr\\bin\\chromedriver");
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
