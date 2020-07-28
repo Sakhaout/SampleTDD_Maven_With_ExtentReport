@@ -13,5 +13,4 @@
 			<class name="web.staurant.testPages.HomePageProductSearchTest" />
 		</classes>
 	</test> <!-- Test -->
-
 </suite> <!-- Suite -->
