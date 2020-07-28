@@ -16,7 +16,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import sample.utilies.CommonFunction;
@@ -28,9 +28,6 @@ public class BasePage {
 	private static Logger log = LogManager.getLogger(BasePage.class.getName());
 	public static int Page_Load_TimeOut = 50;
 	public static int Implicitly_Wait = 50;
-	private static String chromeDriver = "\\src\\main\\resources\\Driver\\chromedriver.exe";
-	private static String geckoDriver = "\\src\\main\\resources\\Driver\\geckodriver.exe";
-	private static String ieDriver = "\\src\\main\\resources\\Driver\\IEDriverServer.exe";
 
 	public BasePage() {
 		try {
@@ -45,57 +42,46 @@ public class BasePage {
 	}
 
 	public static void initialition(String browser) {
-		//String browser = properties_obj.getProperty("browser"); //Get properties from properties file.
-		//		String path_chromeDriver = System.getProperty("user.dir") + chromeDriver;
-		//		String path_gekoDriiver = System.getProperty("user.dir") + geckoDriver;
-		//		String path_IEDriver = System.getProperty("user.dir") + ieDriver;
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
-//			chromeOptions.addArguments("--headless");
-//			chromeOptions.addArguments("--no-sandbox");
 			chromeOptions.merge(cap);
-			try {
-				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),chromeOptions);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			//			System.setProperty("webdriver.chrome.driver", path_chromeDriver);
-			//driver = new ChromeDriver(chromeOptions);
+//			try {
+//				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),chromeOptions);
+//			} catch (MalformedURLException e) {
+//				e.printStackTrace();
+//			}
+			driver = new ChromeDriver(chromeOptions);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "firefox");
-			try {
-				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),cap);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			//			System.setProperty("webdriver.gecko.driver", path_gekoDriiver);
-			//			driver = new FirefoxDriver();
+//			try {
+//				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),cap);
+//			} catch (MalformedURLException e) {
+//				e.printStackTrace();
+//			}
+			driver = new FirefoxDriver();
 		}else if(browser.equalsIgnoreCase("IE")) {
 			// Set desired capabilities to Ignore IEDriver IGNORING_SECURITY_DOMAINS.
-			//			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			//			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 
 			// Set desired capabilities to Ignore IEDriver zoom level settings and disable native events.
-			//			capabilities.setCapability("EnableNativeEvents", false);
-			//			capabilities.setCapability("ignoreZoomSetting", true);
-			//	capabilities.setCapability("browserName", "IE");
+			capabilities.setCapability("EnableNativeEvents", false);
+			capabilities.setCapability("ignoreZoomSetting", true);
+			capabilities.setCapability("browserName", "IE");
 			WebDriverManager.iedriver().setup();
-			//			try {
-			//				driver = new RemoteWebDriver(new URL(" "),capabilities);
-			//			} catch (MalformedURLException e) {
-			//				// TODO Auto-generated catch block
-			//				e.printStackTrace();
-			//			}
-			//			System.setProperty("webdriver.ie.driver", path_IEDriver);
-			//driver = new InternetExplorerDriver();
+//			try {
+//				driver = new RemoteWebDriver(new URL(" "),capabilities);
+//			} catch (MalformedURLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			driver = new InternetExplorerDriver();
 		}
 
 		driver.manage().window().maximize();  //Windows will maximize.
