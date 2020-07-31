@@ -5,7 +5,7 @@
 
 	<groupId>SampleTDD_Maven_With_ExtentReport</groupId>
 	<artifactId>SampleTDD_Maven_With_ExtentReport</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>3.0.5</version>
 	<packaging>jar</packaging>
 
 	<name>SampleTDD_Maven_With_ExtentReport</name>
