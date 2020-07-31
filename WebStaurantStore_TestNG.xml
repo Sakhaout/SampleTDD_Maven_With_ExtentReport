@@ -13,11 +13,5 @@
 			<class name="web.staurant.testPages.HomePageProductSearchTest" />
 		</classes>
 	</test> <!-- Test -->
-		<test name="WebStaurantStore testing on firefox">
-		<parameter name="browser" value="firefox"></parameter>
-		<classes>
-			<class name="web.staurant.testPages.HomePageProductSearchTest" />
-		</classes>
-	</test> <!-- Test -->
 
 </suite> <!-- Suite -->
