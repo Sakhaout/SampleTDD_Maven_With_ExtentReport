@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+	<modelVersion>3.0.5</modelVersion>
 
 	<groupId>SampleTDD_Maven_With_ExtentReport</groupId>
 	<artifactId>SampleTDD_Maven_With_ExtentReport</artifactId>
-	<version>3.0.5</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>SampleTDD_Maven_With_ExtentReport</name>
