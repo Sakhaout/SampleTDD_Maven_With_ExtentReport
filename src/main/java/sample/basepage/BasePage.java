@@ -44,17 +44,20 @@ public class BasePage {
 	public static void initialition(String browser) {
 		log.info("  Launching Browser - "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
+			log.info("Test_0");
 			WebDriverManager.chromedriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.merge(cap);
+			log.info("Test_1");
 //			try {
 //				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),chromeOptions);
 //			} catch (MalformedURLException e) {
 //				e.printStackTrace();
 //			}
 			driver = new ChromeDriver(chromeOptions);
+			log.info("Test_2");
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities cap = new DesiredCapabilities();
