@@ -16,14 +16,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import sample.utilies.CommonFunction;
 
 
 public class BasePage {
-	public static WebDriver driver = null; 
+	public static RemoteWebDriver driver = null; 
 	public static Properties properties_obj;
 	private static Logger log = LogManager.getLogger(BasePage.class.getName());
 	public static int Page_Load_TimeOut = 50;
@@ -51,12 +51,8 @@ public class BasePage {
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.merge(cap);
 			log.info("Test_1");
-//			try {
-//				driver = new RemoteWebDriver(new URL("http://54.86.194.201:4444/wd/hub"),chromeOptions);
-//			} catch (MalformedURLException e) {
-//				e.printStackTrace();
-//			}
-			driver = new ChromeDriver();
+			driver = new RemoteWebDriver(chromeOptions);
+		//	driver = new ChromeDriver();
 			log.info("Test_2");
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
