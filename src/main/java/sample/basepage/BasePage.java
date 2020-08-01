@@ -56,7 +56,7 @@ public class BasePage {
 //			} catch (MalformedURLException e) {
 //				e.printStackTrace();
 //			}
-			driver = new ChromeDriver(chromeOptions);
+			driver = new ChromeDriver();
 			log.info("Test_2");
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
